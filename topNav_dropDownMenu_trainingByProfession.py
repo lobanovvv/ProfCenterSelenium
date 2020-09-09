@@ -9,4 +9,10 @@ driver.get("http://prodpo.ru")
 elem = driver.find_element_by_css_selector("ul.menu-top > li > a > span")
 
 actions = ActionChains(driver)
-actions.move_to_element()
+actions.move_to_element(elem)
+actions.perform()
+
+elem = driver.find_elements_by_css_selector("ul.menu-top > li:first-child > ul > li > a > span")
+elem[0].click()
+
+print(driver.current_url)
