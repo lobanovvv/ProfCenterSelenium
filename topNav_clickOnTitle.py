@@ -1,5 +1,5 @@
-# Проверка переходов по клику на заголовки в верхнем меню
-# Структура теста:
+# Проверка линков (текст, переход) верхнего навигационного меню 
+# Описание теста:
 #   - клик на заголовок
 #   - проверка url
 
@@ -20,9 +20,20 @@ link_url = [
 "https://prodpo.ru/kontakty.html"
 ]
 
+link_text = [
+"ОБУЧЕНИЕ ПО ПРОФЕССИЯМ",
+"ОБУЧЕНИЕ ПО ОХРАНЕ ТРУДА",
+"ОБУЧЕНИЕ ПО ВЫСОТЕ",
+"ПОЖАРНАЯ БЕЗОПАСНОСТЬ",
+"ЭЛЕКТРО БЕЗОПАСНОСТЬ",
+"ПРОМ БЕЗОПАСНОСТЬ",
+"KOНТAКТЫ"
+]
+
 i = 0
 while i < len(link_url):
     element = driver.find_elements_by_css_selector("ul.menu-top > li > a > span")
+    assert element[i].text == link_text[i], "text fail"
     element[i].click()
     assert driver.current_url == link_url[i], "url fail"
     i += 1
