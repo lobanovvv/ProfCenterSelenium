@@ -1,9 +1,9 @@
 # Проверка линков (текст, переход) выпадающего меню "Обучение по профессиям" в верхнем навигационном меню
 # Описание теста:
-#   - Раскрытие меню
-#   - Проверка текста ссылки
+#   - раскрытие меню
+#   - проверка текста ссылки
 #   - ЛКМ по ссылке
-#   - Проверка обновленного url
+#   - проверка обновленного url
 
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
@@ -44,7 +44,8 @@ link_name = [
 ]
 
 i = 0
-while i < len(link_url):
+lenArr = len(link_url)
+while i < lenArr:
     
     elem = driver.find_element_by_css_selector("ul.menu-top > li > a > span")
     
