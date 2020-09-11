@@ -31,11 +31,18 @@ link_text = [
 "KOНТAКТЫ"
 ]
 
+# Кнопка в виде домика в топ меню
+elem = driver.find_element_by_css_selector("a.home")
+assert elem.value_of_css_property("background-image") == 'url("https://prodpo.ru/t/v2036/images/home-pic.png")', "image fail"
+elem.click()
+assert driver.current_url == "https://prodpo.ru/", "url fail"
+
+# Остальное топ меню
 i = 0
 while i < len(link_url):
-    element = driver.find_elements_by_css_selector("ul.menu-top > li > a > span")
-    assert element[i].text == link_text[i], "text fail"
-    element[i].click()
+    elem = driver.find_elements_by_css_selector("ul.menu-top > li > a > span")
+    assert elem[i].text == link_text[i], "text fail"
+    elem[i].click()
     assert driver.current_url == link_url[i], "url fail"
     i += 1
 
