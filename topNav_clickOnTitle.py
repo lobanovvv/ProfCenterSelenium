@@ -39,7 +39,8 @@ assert driver.current_url == "https://prodpo.ru/", "url fail"
 
 # Остальное топ меню
 i = 0
-while i < len(link_url):
+lenArr = len(link_url)
+while i < lenArr:
     elem = driver.find_elements_by_css_selector("ul.menu-top > li > a > span")
     assert elem[i].text == link_text[i], "text fail"
     elem[i].click()
