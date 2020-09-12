@@ -66,7 +66,7 @@ lenArr = len(link_text)
 
 while i < lenArr:
     
-    time.sleep(0.5)
+    time.sleep(0.25)
     
     # Обход бага "Пункт меню Бухгалтерский учет и налогообложение сворачивает ветку пункта меню "Виды обучения""
     if driver.current_url == "https://prodpo.ru/kursy-po-nalogooblozheniyu":
